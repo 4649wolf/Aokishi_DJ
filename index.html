@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#111318" />
+  <title>Aokishi DJ</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="js/pads.js" defer></script>
+  <script src="js/transport.js" defer></script>
+  <script src="js/eq.js" defer></script>
+  <script src="js/master.js" defer></script>
+  <script src="js/crossfader.js" defer></script>
+  <script src="js/filter.js" defer></script>
+  <script src="js/echo.js" defer></script>
+  <script src="js/fx-toggle.js" defer></script>
+  <script src="js/pitch.js" defer></script>
+  <script src="js/platter.js" defer></script>
+  <script src="js/vu-meter.js" defer></script>
+</head>
+<body>
+  <main class="stage">
+    <section class="console" aria-label="Aokishi DJ">
+      <span class="screw screw--tl" aria-hidden="true"></span>
+      <span class="screw screw--tr" aria-hidden="true"></span>
+      <span class="screw screw--bl" aria-hidden="true"></span>
+      <span class="screw screw--br" aria-hidden="true"></span>
+
+      <header class="console__header">
+        <div class="brand-block">
+          <h1>Aokishi DJ</h1>
+        </div>
+        <div class="status-block" aria-hidden="true">
+          <span class="status-block__dot"></span>
+          <span data-status-text>READY</span>
+          <div class="mini-meter"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </header>
+
+      <div class="console__grid">
+        <aside class="module module--fx" aria-label="エフェクト部">
+          <div class="module__title"><span>FX</span><small>COLOR</small></div>
+          <div class="knob-grid">
+            <div class="control-item">
+              <div class="knob knob--cyan" data-filter-knob role="slider" tabindex="0" aria-label="COLOR FILTER" aria-valuemin="-100" aria-valuemax="100" aria-valuenow="0" aria-valuetext="FILTER OFF"><span aria-hidden="true"></span></div>
+              <b>FILTER</b>
+            </div>
+            <div class="control-item">
+              <div class="knob knob--violet" data-echo-knob role="slider" tabindex="0" aria-label="ECHO" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="ECHO OFF"><span aria-hidden="true"></span></div>
+              <b>ECHO</b>
+            </div>
+          </div>
+          <button class="metal-button metal-button--accent" type="button" data-fx-toggle aria-pressed="false" aria-label="FILTERとECHOのFXをON/OFF">FX ON</button>
+        </aside>
+
+        <section class="module module--deck" aria-label="ターンテーブル部" data-instrumental="assets/audio/bgm/01_Instrumental.wav" data-vocals="assets/audio/bgm/01_Vocals.wav" data-scratch-instrumental="assets/audio/bgm/01_ScratchInstrumental.wav" data-scratch-vocals="assets/audio/bgm/01_ScratchVocals.wav">
+          <div class="deck-topline">
+            <span class="deck-label">TURNTABLE</span>
+            <div class="deck-lights" aria-hidden="true"><i></i><i></i><i></i></div>
+          </div>
+
+          <div class="deck-body">
+            <div class="platter-wrap" role="slider" tabindex="0" aria-label="ターンテーブル。ドラッグまたは指で回してスクラッチ" aria-valuemin="0" aria-valuenow="0" aria-valuetext="0秒">
+              <div class="platter-shadow"></div>
+              <div class="platter">
+                <div class="platter__rim"></div>
+                <div class="vinyl">
+                  <div class="vinyl__grooves"></div>
+                  <div class="vinyl__label">
+                    <span>BEAT</span><strong>01</strong><small>33⅓</small>
+                  </div>
+                  <span class="spindle"></span>
+                </div>
+              </div>
+              <div class="strobe-dots"></div>
+            </div>
+
+            <div class="pitch">
+              <div class="pitch__scale" aria-hidden="true"><span>+8</span><span>0</span><span>-8</span></div>
+              <div class="fader fader--vertical" data-pitch-fader role="slider" tabindex="0" aria-label="PITCHフェーダー" aria-valuemin="-8" aria-valuemax="8" aria-valuenow="0" aria-valuetext="0.0%、再生速度 100.0%">
+                <span class="fader__track" aria-hidden="true"></span><span class="fader__cap" aria-hidden="true"></span>
+              </div>
+              <b>PITCH <span data-pitch-value>0.0%</span></b>
+            </div>
+          </div>
+
+          <div class="transport" aria-label="BGM再生操作">
+            <button class="square-key square-key--cue" type="button" data-transport="cue" aria-label="BGMを先頭へ戻して停止"><span></span><b>CUE</b></button>
+            <button class="square-key square-key--play" type="button" data-transport="play" aria-label="BGMを再生または一時停止" aria-pressed="false"><span class="play-icon"></span><b>PLAY</b></button>
+          </div>
+        </section>
+
+        <aside class="module module--pads" aria-label="サンプラーパッド部">
+          <div class="module__title"><span>PADS</span><small>HOT CUE / SAMPLE</small></div>
+          <div class="pad-grid">
+            <button class="pad pad--pink" type="button" data-pad="01" data-sound="assets/audio/pads/01.mp3" aria-label="サンプルパッド 01"><span>01</span></button>
+            <button class="pad pad--orange" type="button" data-pad="02" data-sound="assets/audio/pads/02.mp3" aria-label="サンプルパッド 02"><span>02</span></button>
+            <button class="pad pad--cyan" type="button" data-pad="03" data-sound="assets/audio/pads/03.mp3" aria-label="サンプルパッド 03"><span>03</span></button>
+            <button class="pad pad--violet" type="button" data-pad="04" data-sound="assets/audio/pads/04.mp3" aria-label="サンプルパッド 04"><span>04</span></button>
+          </div>
+        </aside>
+      </div>
+
+      <section class="mixer-strip" aria-label="ミキサー部">
+        <div class="mixer-strip__label"><span>MIXER</span><small>MASTER</small></div>
+        <div class="channel"><span class="channel__name">LOW</span><div class="mini-knob" data-eq-band="low" role="slider" tabindex="0" aria-label="LOW EQ" aria-valuemin="-24" aria-valuemax="6" aria-valuenow="0" aria-valuetext="LOW 0 dB"><span aria-hidden="true"></span></div></div>
+        <div class="channel"><span class="channel__name">MID</span><div class="mini-knob" data-eq-band="mid" role="slider" tabindex="0" aria-label="MID EQ" aria-valuemin="-24" aria-valuemax="6" aria-valuenow="0" aria-valuetext="MID 0 dB"><span aria-hidden="true"></span></div></div>
+        <div class="channel"><span class="channel__name">HIGH</span><div class="mini-knob" data-eq-band="high" role="slider" tabindex="0" aria-label="HIGH EQ" aria-valuemin="-24" aria-valuemax="6" aria-valuenow="0" aria-valuetext="HIGH 0 dB"><span aria-hidden="true"></span></div></div>
+        <div class="channel channel--master"><span class="channel__name">MASTER</span><div class="mini-knob mini-knob--master" data-master-knob role="slider" tabindex="0" aria-label="MASTER音量" aria-valuemin="0" aria-valuemax="300" aria-valuenow="100" aria-valuetext="MASTER 100%"><span aria-hidden="true"></span></div></div>
+        <div class="vu-meter" role="meter" aria-label="MASTER出力レベル" aria-valuemin="-60" aria-valuemax="0" aria-valuenow="-60" aria-valuetext="MASTER 無音">
+          <span class="vu-meter__label">MASTER</span>
+          <div class="vu-meter__bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="crossfader" data-crossfader-wrap>
+          <span title="Instrumental">A</span>
+          <div class="fader fader--horizontal" data-crossfader role="slider" tabindex="0" aria-label="CROSSFADER Instrumental to Vocals" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="CENTER: Instrumental + Vocals"><span class="fader__track" aria-hidden="true"></span><span class="fader__cap" aria-hidden="true"></span></div>
+          <span title="Vocals">B</span><b>CROSSFADER</b>
+        </div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
